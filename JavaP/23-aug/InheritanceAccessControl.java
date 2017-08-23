@@ -1,7 +1,10 @@
+//conlusion --
+//1. Refference of sub class can be given to super class. and super class can be used normally, with the data passed to the variable of super class
+//2. Public members of super class can be used in subclass directly, as if those members are part of subclass itself
 class A{
 	int i;
-	private	int z;
-
+	//private	int z; if this is uncommented then error will come as it cannot be used in sum() function of B class
+	int z;
 	void showiz(){
 		System.out.println("i="+i+" "+"z="+z);
 	}
@@ -17,18 +20,26 @@ class B extends A{//since class B extends A, so in this class we can directly us
 	}
 }
 
-class Inheritance{
+class InheritanceAccessControl{
 	public static void main(String[] args){
-		
 		B ObjOfB = new B();
-		
+			
 		ObjOfB.i=4;
 		ObjOfB.z=7;
 		
-		ObjOfB.showiz();
+		ObjOfB.showiz();//here also showiz() which is function of class A is directly used, as if it is member of class B
 		
+		//--	in this block we are giving refference of sub class to super class..all the data variable that objofB contain will be passed to super class object i.e objofA
+		A objofA = new A();
+		objofA = ObjOfB;//here we are giving refference of sub class to super class
+		System.out.println();
 		
+		System.out.println("asdf");
+		objofA.showiz();
 
+
+		//--
+		//
 		ObjOfB.j=5;
 		
 		ObjOfB.sum();
