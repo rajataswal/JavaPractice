@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <style>
 div.tab {
     width: 200px;
@@ -35,9 +37,18 @@ div.tab a.active{
  <a class="tablinks" onclick="openCity(event, 'Paris')">Paris</a>
  
 </div>
+
 <button onclick="myFunction()">Try it</button>
 
 <script>
+
+$(document).ready(function(){
+        $("#div1").load("demo_test.txt", function(responseTxt, statusTxt, xhr){
+            //if(statusTxt == "success")                //alert("External content loaded successfully!");            //if(statusTxt == "error")                //alert("Error: " + xhr.status + ": " + xhr.statusText);
+        });
+});
+
+
 var i=0
 //i=0;
   
@@ -47,6 +58,10 @@ var char1=["coffe","tea","bread","milk","boost","borvite"];
  function getText( obj ) {
     return obj.textContent ? obj.textContent : obj.innerText;
 }
+var aaaa= document.getElementById("div1");
+document.write("111111122222");
+document.write(getText(aaaa));
+getText()
 function myFunction() {
     var para = document.createElement("a");
     
@@ -55,7 +70,7 @@ function myFunction() {
     var t = document.createTextNode(char1[i]);
     //var t = char1[i];
     
-    alert(getText(t));
+    //alert(getText(t));
     //alert(document.createTextNode(char1[i]));
     para.appendChild(t);//this statement is working fine
     document.getElementById("myDIV").appendChild(para);
@@ -91,6 +106,9 @@ function simple(attv){
 var model=[attv]
 }
 </script>
+
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+<button>Get External Content</button>
 
 </body>
 </html>
