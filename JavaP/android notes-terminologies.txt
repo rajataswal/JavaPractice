@@ -1,0 +1,18 @@
+
+The user interface for an Android app is built using a hierarchy of layouts (ViewGroup objects) and widgets (View objects). 
+
+We can declare a layout in two ways:
+1.Declare UI elements in XML. Android provides a straightforward XML vocabulary that corresponds to the View classes and subclasses, such as those for widgets and layouts.
+2.Instantiate layout elements at runtime. Your application can create View and ViewGroup objects (and manipulate their properties) programmatically.
+
+Each layout file(here xml file) must contain exactly one root element, which must be a View or ViewGroup object
+When you compile your application, each XML layout file is compiled into a View resource.
+
+Button, textview etc are View objects
+
+ You can add views either from code
+ Once you have created a tree of views, there are typically a few types of common operations you may wish to perform:
+ 1.set properties
+ 2.set focus
+ 3.set up listeners
+ 4.set visibility
